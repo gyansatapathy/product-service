@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,7 +34,7 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{categoryname}")
+    @GetMapping("/{categoryName}")
     public List<ProductDTO> getProductsByCategory(@PathVariable("categoryName") String categoryName) {
         return productService.getProductsByCategory(categoryName);
     }
@@ -48,9 +49,9 @@ public class ProductController {
         return productService.updateProduct(productId, productDTO);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteProduct(@PathVariable("id") String productId) {
-        productService.deleteProduct(productId);
+    public void deleteProduct(@RequestParam("productIds") List<String> productIds) {
+        productIds.forEach(productService::deleteProduct);
     }
 }

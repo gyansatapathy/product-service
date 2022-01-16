@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 public class ProductDTO {
 
     @NotNull(message = "Product ID can't be null")
-    private String productID;
+    private String productId;
     private String productCategory;
     private String productName;
     private String productDescription;
@@ -14,11 +14,11 @@ public class ProductDTO {
 
 
     public String getProductId() {
-        return productID;
+        return productId;
     }
 
-    public void setProductID(String productID) {
-        this.productID = productID;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public String getProductCategory() {

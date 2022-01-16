@@ -10,7 +10,7 @@ public final class ProductDTOFactory {
 
     public static ProductDTO toProductDTO(Product product){
         ProductDTO productDTO = new ProductDTO();
-        productDTO.setProductID(product.getProductId());
+        productDTO.setProductId(product.getProductId());
         productDTO.setProductName(product.getProductName());
         productDTO.setProductCategory(product.getProductCategory());
         productDTO.setProductDescription(product.getProductDescription());
