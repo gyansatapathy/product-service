@@ -34,8 +34,8 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{categoryName}")
-    public List<ProductDTO> getProductsByCategory(@PathVariable("categoryName") String categoryName) {
+    @GetMapping("/search")
+    public List<ProductDTO> getProductsByCategory(@RequestParam("categoryName") String categoryName) {
         return productService.getProductsByCategory(categoryName);
     }
 
