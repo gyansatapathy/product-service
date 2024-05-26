@@ -121,7 +121,7 @@ public class RuleSearchController {
                 results.add(highlightedObject);
             }
         }
-x`        return results.stream().map(value -> {
+       return results.stream().map(value -> {
             try {
                 return objectMapper.readValue(value.toString(), Object.class);
             } catch (JsonProcessingException e) {
