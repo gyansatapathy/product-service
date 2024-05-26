@@ -50,7 +50,7 @@ public class RuleSearchController {
         }
 
         try (IndexWriter writer = new IndexWriter(memoryIndex, new IndexWriterConfig(analyzer))) {
-            writer.addDocument(new Term(jsonObject.get("id").getAsString()),document);
+            writer.addDocument(document);
         }
 
         return "Rule added successfully!";
