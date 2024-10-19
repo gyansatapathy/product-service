@@ -5,15 +5,11 @@ public class SimpleThreads {
     // Display a message, preceded by
     // the name of the current thread
     static void threadMessage(String message) {
-        String threadName =
-                Thread.currentThread().getName();
-        System.out.format("%s: %s%n",
-                threadName,
-                message);
+        String threadName = Thread.currentThread().getName();
+        System.out.format("%s: %s%n", threadName, message);
     }
 
-    private static class MessageLoop
-            implements Runnable {
+    private static class MessageLoop implements Runnable {
         public void run() {
             String importantInfo[] = {
                     "Mares eat oats",
@@ -34,8 +30,7 @@ public class SimpleThreads {
         }
     }
 
-    public static void main(String args[])
-            throws InterruptedException {
+    public static void main(String args[]) throws InterruptedException {
 
         // Delay, in milliseconds before
         // we interrupt MessageLoop
@@ -74,7 +69,7 @@ public class SimpleThreads {
                 t.interrupt();
                 // Shouldn't be long now
                 // -- wait indefinitely
-//                t.join();
+                t.join();
             }
         }
         threadMessage("Finally!");
