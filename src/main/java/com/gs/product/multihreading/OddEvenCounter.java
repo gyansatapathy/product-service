@@ -1,6 +1,4 @@
-package com.gs.product;
-
-import java.util.concurrent.atomic.AtomicInteger;
+package com.gs.product.multihreading;
 
 public class OddEvenCounter {
     private int counter = 1;

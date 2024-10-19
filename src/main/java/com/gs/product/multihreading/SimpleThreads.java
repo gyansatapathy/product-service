@@ -1,4 +1,4 @@
-package com.gs.product;
+package com.gs.product.multihreading;
 
 public class SimpleThreads {
 
