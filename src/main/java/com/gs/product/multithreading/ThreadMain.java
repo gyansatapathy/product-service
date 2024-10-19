@@ -1,4 +1,4 @@
-package com.gs.product.multihreading;
+package com.gs.product.multithreading;
 
 public class ThreadMain {
 

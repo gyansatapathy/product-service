@@ -1,16 +1,16 @@
-package com.gs.product.multihreading;
+package com.gs.product.multithreading;
 
-public class OddEvenCounter {
+public class ThreeThreadCounter {
     private int counter = 1;
     private final int limit;
     private final Object lock = new Object();
 
-    public OddEvenCounter(int limit) {
+    public ThreeThreadCounter(int limit) {
         this.limit = limit;
     }
 
-    // Thread to increment even numbers
-    private class EvenThread implements Runnable {
+    // Thread to increment numbers divisible 3
+    private class Thread3 implements Runnable {
         @Override
         public void run() {
             while (true) {
@@ -34,8 +34,8 @@ public class OddEvenCounter {
         }
     }
 
-    // Thread to increment odd numbers
-    private class OddThread implements Runnable {
+    // Thread to increment numbers which would leave remainder 2 when divided by 3
+    private class Thread2 implements Runnable {
         @Override
         public void run() {
             while (true) {
@@ -58,6 +58,7 @@ public class OddEvenCounter {
             }
         }
     }
+    // Thread to increment numbers which would leave remainder 1 when divided by 3
     private class Thread1 implements Runnable {
         @Override
         public void run() {
@@ -83,8 +84,8 @@ public class OddEvenCounter {
     }
 
     public void startThreads() {
-        Thread evenThread = new Thread(new EvenThread());
-        Thread oddThread = new Thread(new OddThread());
+        Thread evenThread = new Thread(new Thread3());
+        Thread oddThread = new Thread(new Thread2());
         Thread thread1 = new Thread(new Thread1());
 
         evenThread.start();
@@ -101,7 +102,7 @@ public class OddEvenCounter {
     }
 
     public static void main(String[] args) {
-        OddEvenCounter counter = new OddEvenCounter(2000);
+        ThreeThreadCounter counter = new ThreeThreadCounter(2000);
         counter.startThreads();
     }
 }
