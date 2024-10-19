@@ -19,9 +19,9 @@ public class SimpleThreads {
             };
                 int i = 0;
                 while (true) {
-                    // Pause for 4 seconds
+                    //print the work it is doing
                     threadMessage("Updating i for value" + i++);
-                    // Print a message
+                    // check if someone has interrupted the thread if so then exit
                     if(Thread.currentThread().isInterrupted()){
                         threadMessage("Some Jackass interrupted me");
                         return;
